@@ -15,7 +15,7 @@ app.get('/api/employees',(req,res) =>{
 app.get("/api/employee_id/:id", (req, res) => {
     const employee = employees.find((c) => c.id === parseInt(req.params.id));
     //If there is no valid customer ID, then display an error with the following message
-    if (!employee) res.status(404).send("Ooops... Cant find id what you are looking for!");
+    if (!employee) res.status(404).send("Ooops... Cant find identity what you are looking for!");
     res.send(employee);
 });
 app.get('/api/employee_name/:name', (req, res) => {
@@ -84,6 +84,7 @@ function validateEmployee(employee) {
     return schema.validate(employee);
 }
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Listening on port ${port}..`));
+const port = 4000;
+app.listen(port, () => {console.log(`Listening on port ${port}..`);
+});
 
