@@ -1,5 +1,7 @@
 const express=require('express');
 const Joi = require('joi');
+const mongoose = require('mongoose');
+
 const app = express();
 app.use(express.json());
 
@@ -83,7 +85,16 @@ function validateEmployee(employee) {
     });
     return schema.validate(employee);
 }
-
+//Set up default mongoose connection
+const DB_URL = 'mongodb+srv://user1:user1@emplyee.rm0shnp.mongodb.net/Employee?retryWrites=true&w=majority';
+mongoose.set('strictQuery', true);
+mongoose.connect(DB_URL)
+.then(()=>{
+    console.log("DB Connected")
+})
+.catch((err)=>
+{console.log("DB not Conneted",err)
+})
 const port = 4000;
 app.listen(port, () => {console.log(`Listening on port ${port}..`);
 });
