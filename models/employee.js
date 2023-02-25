@@ -1,14 +1,13 @@
-const { number } = require("joi");
 const mongoose=require("mongoose");
 
-const postSchema = new mongoose.Schema({
+const employeeSchema = new mongoose.Schema({
     
     name:{
         type:String,
         required :true
     },
     Age:{
-        type:number,
+        type:String,
         required :true
     },
     Role:{
@@ -17,4 +16,4 @@ const postSchema = new mongoose.Schema({
     }
 
 });
-module.exports=mongoose.model('Posts',postSchema)
+module.exports=mongoose.model('Employees',employeeSchema)
