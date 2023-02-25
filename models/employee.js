@@ -7,7 +7,7 @@ const employeeSchema = new mongoose.Schema({
         required :true
     },
     Age:{
-        type:String,
+        type:Number,
         required :true
     },
     Role:{
